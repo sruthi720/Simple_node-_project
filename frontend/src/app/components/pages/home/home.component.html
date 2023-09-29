@@ -1,0 +1,28 @@
+
+<ul>
+  <li *ngFor="let item of foods">                          <!-- each element of food srray -->
+    <a href="/food/{{item.id}}">
+      <img [src]="item.imageUrl" [alt]="item.name" />
+      <div class="content">                                 <!--to show details of the food-->
+        <div class="name">
+          {{item.name}}
+        </div>
+        <span class="favorite">{{item.favorite?'' :'not'}} ♥ </span>
+        <div class="stars"></div>
+      </div>
+    </a>                            <!-- <a> tag go to the food page ,if click any part of food it will redirect to the food page-->
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
