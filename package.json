@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@angular/cli": "^16.2.4"
+    "ng-starrating": "^1.0.20",
+    "primeng": "^16.4.1"
   }
 }

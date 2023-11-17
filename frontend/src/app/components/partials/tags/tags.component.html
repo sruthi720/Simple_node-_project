@@ -1,0 +1,6 @@
+<div *ngIf="tags">  <!--if the tags has value?-->
+  <!--look throgh the tags using ng for ,at its routreLink go to the-->
+  <a *ngFor="let tag of tags" href="/tag/{{tag.name}}">
+    {{tag.name}}({{tag.count}})
+  </a>
+</div>
