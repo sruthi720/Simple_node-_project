@@ -1,0 +1,47 @@
+<app-title title="Cart Page"  margin="1.5rem 0 0 2.5rem"></app-title>
+
+
+<app-not-found
+[visible]="!cart || !cart.items.length"
+notFoundMessage ="Cart page is empty ..!"
+resetLinkText="Go to Homepage "><!--not found is visible when the cart is not visible or undefind  and.......the length of the cart is bigger than zero for-->
+</app-not-found>
+
+
+<div *ngIf="cart && cart.items.length" class="container"><!--if cart not null and number of cart items are bigger than 0-->-->
+  <ul>
+    <li *ngFor="let cartItem of cart.items" style="list-style-type : none;">
+      <div>
+        <a href="/food/{{cartItem.foods.id}}">
+          <div><img [src]="cartItem.foods.imageUrl" alt="cartItem.foods.name"></div>
+          <div>{{cartItem.foods.name}}</div>
+        </a>
+      </div>
+      <div>
+        <select #quantitySelect [value]="cartItem.quantity" (change)="changeQuantity(cartItem,quantitySelect.value)">
+        <option >1</option>
+        <option >2</option>
+        <option >3</option>
+        <option >4</option>
+        <option >5</option>
+      </select>
+      </div><!--quantity select the value of the cartitem.quantity, whenever its value got changed it will call tje changeQuantity function-->
+
+      <div>{{cartItem.price | currency}}</div>
+      <div>
+        <button class="remove-button  " (click)="removeFromCart(cartItem)">Remove</button>
+      </div>
+
+    </li>
+  </ul>
+
+  <div class="checkout">
+    <div>
+      <div class="food-count">{{cart.totalCount}}</div>
+      <div class="total-price">{{cart.totalPrice | currency}}</div>
+    </div>
+    <a href="/checkout">Proceed To checkout</a>
+  </div>
+
+
+</div>

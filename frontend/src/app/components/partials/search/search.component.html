@@ -1,0 +1,5 @@
+<div>
+  <input type="text" #s placeholder="food of mine !" (keyup.enter)="search(s.value)" [value]="searchTerm"><!--to show the search vallue inside the input [value]='searchTerm'-->
+  <!--#s is the template references ,  you can have direct acces  everywhere to html file ,if it use with a tag it hold all data of the specific type -->
+  <button (click)="search(s.value)">Search</button>
+</div>

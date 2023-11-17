@@ -1,5 +1,6 @@
 //add members to this food model class
 export class food{
+  
   id!:  string;
   name!: string;
   price!: number;     //'!' reps required
@@ -9,4 +10,5 @@ export class food{
   imageUrl !:string;
   origins !:string[];
   cookTime!:string;
+  static price: number;
 }

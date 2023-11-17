@@ -1,3 +1,6 @@
+<app-search></app-search>
+<app-tags></app-tags>
+<app-not-found [visible]="!foods || !foods.length" resetLinkText="Reset search"></app-not-found>  <!--food property is undefined and food -->>
 
 <ul>
   <li *ngFor="let item of foods">                          <!-- each element of food srray -->
@@ -7,8 +10,21 @@
         <div class="name">
           {{item.name}}
         </div>
-        <span class="favorite">{{item.favorite?'' :'not'}} ♥ </span>
+        <span class="favorite {{item.favorite?'':'not'}}">
+          ❤
+        </span>
         <div class="stars"></div>
+        <div class="product-item-footer">
+          <div class="origins">
+            <span *ngFor="let origin of item.origins">{{origin}}</span>
+          </div>
+          <div class="cook-time">
+            <span>		&#9200;	</span>{{item.cookTime}}
+          </div>
+          <div class="price">
+            <span>{{item.price | currency}}</span> <!--here currency is the format-->
+          </div>
+        </div>
       </div>
     </a>                            <!-- <a> tag go to the food page ,if click any part of food it will redirect to the food page-->
   </li>
